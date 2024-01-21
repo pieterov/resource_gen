@@ -1,3 +1,8 @@
+# Import module.
+import datatime
+import re
+
+# Define function.
 def f_now():
 
     """

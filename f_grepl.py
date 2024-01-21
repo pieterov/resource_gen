@@ -1,3 +1,7 @@
+# Import module.
+import re
+
+# Define function.
 def f_grepl(pattern, l_str):
 
     """

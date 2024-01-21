@@ -1,3 +1,8 @@
+# Import module.
+import os
+import re
+
+# Define function.
 def f_get_root_folder():
 
     """

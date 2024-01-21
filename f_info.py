@@ -1,3 +1,7 @@
+# Import module.
+import pandas as pd
+
+# Define function.
 def f_info(
 
     x,
@@ -213,21 +217,16 @@ def f_info(
     # Table strings.
     #c_type_table = "Type: " + type(l_input[0]).__name__
 
-    c_freq_table = f_ifelse(
-        
-        isinstance(n_top, int),
+    c_freq_table = (
 
-        f_ifelse(
+        (
+            "All items:" if n_unique <= n_top else "Top-" + str(n_top)
+        )
 
-            n_unique <= n_top,
-            "All items:",
-            "Top-" + str(n_top)
-        ),
+        if isinstance(n_top, int) else "All items:"
 
-        "All items:"
-
-        ) + " (type: '" + type(l_input.values[0]).__name__ + "')"
-
+    ) + " (type: '" + type(l_input.values[0]).__name__ + "')"
+    
     # Header frequency table.
     
     print("\n  " + " "*(n_width + n_char_count) + "n  perc")

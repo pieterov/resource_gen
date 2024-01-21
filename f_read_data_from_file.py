@@ -1,3 +1,15 @@
+# Import module.
+import datetime
+import os
+import re
+
+import pandas as pd
+
+from .f_get_latest_file       import f_get_latest_file
+from .f_get_root_folder       import f_get_root_folder
+from .f_clean_up_header_names import f_clean_up_header_names
+
+# Define function.
 def f_read_data_from_file(
 
     l_name,
@@ -191,7 +203,7 @@ def f_read_data_from_file(
                 print(f"Sheet name : '{c_sheet_temp}' - first sheet in the workbook.")
 
 
-        print(f"Path       : '.../{re.sub(f_who_am_i()[1], '', c_path)}'")
+        print(f"Path       : '.../{re.sub(f_get_root_folder(), '', c_path)}'")
 
         print(f"Modified   : {l_file[i].date_mod}")
 
@@ -206,7 +218,6 @@ def f_read_data_from_file(
     # Clean up header names?
     if b_clean_header_names:
         df_data.columns = f_clean_up_header_names(l_input = df_data.columns)
-
 
     # Strip spaces before and after the data in each cell?
     if b_strip_spaces:

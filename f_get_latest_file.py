@@ -1,3 +1,12 @@
+# Import module.
+import os
+import time
+import datetime
+
+import pandas as pd
+
+
+# Define function.
 def f_get_latest_file(
 
     c_name,
@@ -81,7 +90,10 @@ def f_get_latest_file(
     
     # Get first row (latest file).
     ps_file = (df_file
-        .sort_values(by='date_mod_sec', ascending=False)
+        .sort_values(
+            by        = 'date_mod_sec',
+            ascending = False
+        )
         .iloc[0]
     )
 

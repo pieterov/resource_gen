@@ -1,4 +1,15 @@
-def f_join(l_input, c_sep = ',', b_quote = False, c_quote = "'", c_and = None):
+# Import module.
+
+
+# Define function.
+def f_join(
+          
+          l_input,
+          c_sep = ',',
+          b_quote = False,
+          c_quote = "'",
+          c_and = None
+    ):
 
     """
     Join list of items separated by ','.

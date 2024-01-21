@@ -1,5 +1,14 @@
 # Import module.
-from .constants import C_PATH_DATA
+import datetime
+import os
+import re
+
+import pandas as pd
+
+from .constants           import C_PATH_DATA
+from .f_get_root_folder   import f_get_root_folder
+from .f_now               import f_now
+from .f_var_name          import f_var_name
 
 # Define function.
 def f_write_data_to_file(
@@ -81,7 +90,7 @@ def f_write_data_to_file(
 
     # Create l_name if not provided.
     if l_name is None:
-        l_name = ['data' + str(i+1) for i in f_seq_along(l_df)]
+        l_name = ['data' + str(i+1) for _,i in enumerate(l_df)]
 
 
 #----------------------------------------------------------------------------------------------------------------------
@@ -323,7 +332,7 @@ def f_write_data_to_file(
 
     print(f"As         : '{c_type}'")
 
-    print(f"Path       : '.../{re.sub(f_who_am_i()[1], '', c_path)}'")
+    print(f"Path       : '.../{re.sub(f_get_root_folder(), '', c_path)}'")
 
     print(f"==========================")
 

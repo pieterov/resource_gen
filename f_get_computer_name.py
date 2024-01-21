@@ -1,3 +1,7 @@
+# Import module.
+import os
+
+# Define function.
 def f_get_computer_name():
 
     """
