@@ -34,7 +34,6 @@ def f_check_nonnumeric_in_df(
     l_exclude_columns = ['product']
     l_include_columns = []
     """
-
         
     # Error check - Are all column names in 'l_exclude_column' and 'l_include_column' present in df_input?
     l_exclude_columns_not_in_df_input = [x for x in l_exclude_columns if x not in  df_input.columns]
