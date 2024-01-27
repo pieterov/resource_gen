@@ -1,9 +1,10 @@
 # Import module.
-import datetime
 import os
 import re
 
 import pandas as pd
+
+from datetime             import datetime
 
 from .constants           import C_PATH_DATA
 from .f_get_root_folder   import f_get_root_folder

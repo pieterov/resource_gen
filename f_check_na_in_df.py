@@ -1,6 +1,7 @@
 # Import module.
 from .f_var_name import f_var_name
 
+
 # Define function.
 def f_check_na_in_df(
     

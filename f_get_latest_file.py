@@ -1,9 +1,11 @@
 # Import module.
 import os
+import re
 import time
-import datetime
 
 import pandas as pd
+
+from datetime import datetime
 
 
 # Define function.
@@ -89,7 +91,9 @@ def f_get_latest_file(
     )
     
     # Get first row (latest file).
-    ps_file = (df_file
+    ps_file = (
+        
+        df_file
         .sort_values(
             by        = 'date_mod_sec',
             ascending = False
@@ -98,11 +102,12 @@ def f_get_latest_file(
     )
 
     # Convert seconds to time stamp.
-    ps_file['date_mod'] = datetime.fromtimestamp(
+    ps_file['date_mod'] = (
         
-        ps_file.date_mod_sec
-        
-        ).strftime('%Y-%m-%d %H:%M:%S')
+        datetime
+        .fromtimestamp(ps_file.date_mod_sec)
+        .strftime('%Y-%m-%d %H:%M:%S')
+    )
   
     # Add age of file
     n_age = time.time() - ps_file.date_mod_sec

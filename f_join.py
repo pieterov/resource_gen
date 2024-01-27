@@ -1,14 +1,14 @@
 # Import module.
-
+import pandas as pd
 
 # Define function.
 def f_join(
           
           l_input,
-          c_sep = ',',
+          c_sep   = ',',
           b_quote = False,
           c_quote = "'",
-          c_and = None
+          c_and   = None
     ):
 
     """
@@ -65,6 +65,10 @@ def f_join(
 
     # Determine length of l_input.
     n_length = len(l_input)
+
+    # Check on n_length.
+    if n_length == 0:
+         return ""
 
     # Add quotation if requested.
     if b_quote:

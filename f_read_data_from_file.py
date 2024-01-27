@@ -1,9 +1,10 @@
 # Import module.
-import datetime
 import os
 import re
 
 import pandas as pd
+
+from datetime                 import datetime
 
 from .f_get_latest_file       import f_get_latest_file
 from .f_get_root_folder       import f_get_root_folder
