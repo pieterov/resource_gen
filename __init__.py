@@ -5,8 +5,6 @@ Author:     Pieter Overdevest
 
 
 # Import modules
-from .constants                         import *
-
 from .f_check_na_in_df                  import f_check_na_in_df
 from .f_clean_up_header_names           import f_clean_up_header_names
 from .f_get_computer_name               import f_get_computer_name
@@ -19,3 +17,6 @@ from .f_join                            import f_join
 from .f_now                             import f_now
 from .f_read_data_from_file             import f_read_data_from_file
 from .f_write_data_to_file              import f_write_data_to_file
+
+from .i_constants                       import *
+from .i_variables                       import *

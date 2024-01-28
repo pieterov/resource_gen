@@ -6,10 +6,10 @@ import pandas as pd
 
 from datetime             import datetime
 
-from .constants           import C_PATH_DATA
 from .f_get_root_folder   import f_get_root_folder
 from .f_now               import f_now
 from .f_var_name          import f_var_name
+from .i_variables         import C_PATH_DATA
 
 # Define function.
 def f_write_data_to_file(
@@ -112,10 +112,10 @@ def f_write_data_to_file(
     # Excel - Store dataframe(s) in separate worksheets in same workbook.
     # To check later - https://xlsxwriter.readthedocs.io/example_pandas_table.html
     if c_type == 'xlsx':
-       
+  
         from openpyxl import load_workbook
         from openpyxl.styles import NamedStyle, Font, PatternFill, Border, Side, Alignment
-
+        
         # with pd.ExcelWriter(os.path.join(c_path, c_now + c_name + "." + c_type)) as writer:
 
         #     for i in range(len(l_df)):

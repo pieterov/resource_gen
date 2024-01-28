@@ -1,14 +1,15 @@
 """
-Purpose:    Define objects used at general level
-Author:     Pieter Overdevest
+Purpose:        Define variables used at general level
+Description:    These depend on functions and constants.
+Author:         Pieter Overdevest
 """
 
 # Import package.
 import os
 import re
 
-from resource_prj import C_PATH_PROJECT_ROOT
-
+# Path to project folder.
+C_PATH_PROJECT_ROOT = re.sub("Code", "", os.getcwd())
 
 # Paths to project root folder and sub-folders.
 C_PATH_CODE         = os.path.join(C_PATH_PROJECT_ROOT, "Code")
