@@ -10,7 +10,6 @@ from .f_clean_up_header_names           import f_clean_up_header_names
 from .f_get_computer_name               import f_get_computer_name
 from .f_get_filenames_in_folder         import f_get_filenames_in_folder
 from .f_get_latest_file                 import f_get_latest_file
-from .f_get_root_folder                 import f_get_root_folder
 from .f_grepl                           import f_grepl
 from .f_info                            import f_info
 from .f_is_numerical                    import f_is_numerical

@@ -1,12 +1,4 @@
 # Import module.
-#import os
-#import re
-#import time
-
-#import pandas as pd
-
-#from datetime import datetime
-
 from .f_get_filenames_in_folder import f_get_filenames_in_folder
 
 
@@ -68,6 +60,7 @@ def f_get_latest_file(
 # Main.
 #----------------------------------------------------------------------------------------------------------------------
 
+    # Data van latest file.
     ps_file = (
         
         f_get_filenames_in_folder(
@@ -82,55 +75,8 @@ def f_get_latest_file(
         .iloc[0]
     )
 
-    # Get all files in said folder, excl. any folders. I replaced f_find_str by list(filter(re.compile(c_name).search, list))
-    # df_file = pd.DataFrame({
-    #     'file': list(filter(
-            
-    #         # String to search for in the file names.
-    #         re.compile(c_name).search,
-
-    #         # List with all files in c_path.
-    #         [                
-    #             f for f in os.listdir(c_path)
-
-    #             # Filter on files only (excl dirs) and on the requested file type.
-    #             if os.path.isfile(os.path.join(c_path, f)) and
-    #                 os.path.splitext(os.path.join(c_path, f))[1]== '.'+c_type
-    #         ]
-    #     ))
-    # })
-
-    # Error check - Is a file found?
-    # if df_file.shape[0] == 0:
-    #     raise LookupError(
-    #         f"No file found for:\nFile name: '{c_name}'\nFile type: '{c_type}'\nFile path: '{c_path}'"
-    #     )
-
-    # Add number of seconds since epoch.
-    # df_file.insert(1, 'date_mod_sec',
-    #     [os.path.getmtime(os.path.join(c_path, f)) for f in df_file.file]
-    # )
-    
-    # Get first row (latest file).
-    # ps_file = (
-        
-    #     df_file
-    #     .sort_values(
-    #         by        = 'date_mod_sec',
-    #         ascending = False
-    #     )
-    #     .iloc[0]
-    # )
-
-    # Convert seconds to time stamp.
-    # ps_file['date_mod'] = (
-        
-    #     datetime
-    #     .fromtimestamp(ps_file.date_mod_sec)
-    #     .strftime('%Y-%m-%d %H:%M:%S')
-    # )
   
-    # Add age of file in seconds.
+    # Age of latest file in seconds.
     n_age =  ps_file.age_mod_sec
 
     if n_age < 60:

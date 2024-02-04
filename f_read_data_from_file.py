@@ -6,8 +6,9 @@ import pandas as pd
 
 from datetime                 import datetime
 
+from .i_variables             import C_PATH_ROOT_PARTNER
+
 from .f_get_latest_file       import f_get_latest_file
-from .f_get_root_folder       import f_get_root_folder
 from .f_clean_up_header_names import f_clean_up_header_names
 
 # Define function.
@@ -72,10 +73,8 @@ def f_read_data_from_file(
     b_clean_header_names = True
     b_strip_spaces       = True
 
-
     l_name  = ["Classification GIs - " + x for x in l_comp_list]
     c_path  = C_PATH_DATA
-    
 
     l_name  = 'Content Database'
     c_path  = C_PATH_DATA
@@ -141,7 +140,7 @@ def f_read_data_from_file(
                 
             obj = pd.read_excel(
 
-                io         = os.path.join(c_path, l_file[i].file),
+                io         = l_file[i].full_path,
                 sheet_name = c_sheet,
                 usecols    = l_cols,
                 skiprows   = n_skiprows,
@@ -177,7 +176,7 @@ def f_read_data_from_file(
                 
                 pd.read_csv(
 
-                    filepath_or_buffer = os.path.join(c_path, l_file[i].file),
+                    filepath_or_buffer = l_file[i].full_path,
                     sep                = c_sep,
                     usecols            = l_cols,
                     skiprows           = n_skiprows,
@@ -193,7 +192,7 @@ def f_read_data_from_file(
 
                     pd.read_parquet(
 
-                        path    = os.path.join(c_path, l_file[i].file),
+                        path    = l_file[i].full_path,
                         engine  = 'pyarrow',
                         columns = l_cols
                     )
@@ -219,7 +218,7 @@ def f_read_data_from_file(
                 print(f"Sheet name : '{c_sheet_temp}' - first sheet in the workbook.")
 
 
-        print(f"Path       : '.../{re.sub(f_get_root_folder(), '', c_path)}'")
+        print(f"Path       : '.../{re.sub(C_PATH_ROOT_PARTNER, '', c_path)}'")
 
         print(f"Modified   : {l_file[i].date_mod}")
 

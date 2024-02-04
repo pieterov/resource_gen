@@ -6,10 +6,9 @@ import pandas as pd
 
 from datetime             import datetime
 
-from .f_get_root_folder   import f_get_root_folder
 from .f_now               import f_now
 from .f_var_name          import f_var_name
-from .i_variables         import C_PATH_DATA
+from .i_variables         import C_PATH_DATA, C_PATH_ROOT_PARTNER
 
 # Define function.
 def f_write_data_to_file(
@@ -44,7 +43,7 @@ def f_write_data_to_file(
 
     Testing
     -------
-    from resource_gen import f_get_root_folder, f_now, f_var_name, C_PATH_DATA
+    from resource_gen import f_now, f_var_name, C_PATH_DATA, C_PATH_ROOT_PARTNER
 
     l_df          = [pd.DataFrame({'a': [1,2,3,2,3,3], 'b': [5,6,7,8,9,9]}), pd.DataFrame({'a': [1,2,3], 'b': [5,6,7]})]
     l_df          =  pd.DataFrame({'a': [1,2,3,2,3,3], 'b': [5,6,7,8,9,9]})
@@ -334,7 +333,7 @@ def f_write_data_to_file(
 
     print(f"As         : '{c_type}'")
 
-    print(f"Path       : '.../{re.sub(f_get_root_folder(), '', c_path)}'")
+    print(f"Path       : '.../{re.sub(C_PATH_ROOT_PARTNER, '', c_path)}'")
 
     print(f"==========================")
 
