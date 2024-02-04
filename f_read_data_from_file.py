@@ -58,7 +58,9 @@ def f_read_data_from_file(
         Data read from file is stored in data frame object.
 
     Testing
-    -------  
+    -------
+    from resource_gen import f_get_root_folder, f_get_latest_file, f_clean_up_header_names
+
     Default:
     c_type               = 'xlsx'
     c_sheet              = None
@@ -80,6 +82,11 @@ def f_read_data_from_file(
     c_type  = 'xlsx'
     c_sheet = 'gedragsindicatoren'
 
+    l_name  = df_file.file
+    c_sheet = "data1"
+    c_path  = c_path
+    c_type  = 'xlsx'
+
     """ 
 
 
@@ -93,6 +100,10 @@ def f_read_data_from_file(
     # Convert l_name to list - with string as single element - in case it is a string.
     if isinstance(l_name, str):
         l_name = [l_name]
+
+    if isinstance(l_name, pd.Series):
+        l_name = l_name.tolist()
+
 
     # Latest file per file name. c_name='Content Database'
     l_file = [
@@ -110,8 +121,12 @@ def f_read_data_from_file(
 # Error check.
 #----------------------------------------------------------------------------------------------------------------------
 
-    if c_type not in l_type_valid :
-        raise ValueError(f"You did not provide a valid file type. Choose 'c_type' to be one of {', '.join(l_type_valid)}.")
+    if c_type not in l_type_valid:
+
+        raise ValueError(
+            f"You did not provide a valid file type. "
+            f"Choose 'c_type' to be one of {', '.join(l_type_valid)}."
+        )
 
 
 #----------------------------------------------------------------------------------------------------------------------
@@ -139,7 +154,7 @@ def f_read_data_from_file(
             # from which we will take the first worksheet.
             if isinstance(obj, dict):
                     
-                c_sheet_temp = list(obj.keys())[0]
+                c_sheet_temp = list(obj.keys()).iloc[0]
                 
                 df_temp = obj[c_sheet_temp]
 

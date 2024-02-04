@@ -44,17 +44,18 @@ def f_write_data_to_file(
 
     Testing
     -------
+    from resource_gen import f_get_root_folder, f_now, f_var_name, C_PATH_DATA
+
     l_df          = [pd.DataFrame({'a': [1,2,3,2,3,3], 'b': [5,6,7,8,9,9]}), pd.DataFrame({'a': [1,2,3], 'b': [5,6,7]})]
     l_df          =  pd.DataFrame({'a': [1,2,3,2,3,3], 'b': [5,6,7,8,9,9]})
     l_df          = pd.Series([1,2,3,4])
     l_df          = [1,2,3,2,3,3]    
-    c_name = "Data file"
-    c_path        = C_PATH_DELIVERABLES
-    c_type        = 'xlsx'
-    c_type        = 'csv'
-    c_type        = 'parquet'
-    l_name        = None
-    l_name        = ['DATA1', 'DATA2']
+
+    l_df   = pd.concat(l_df_data)
+    c_name = 'Tuning GIs based on score'
+    c_path = C_PATH_DELIVERABLES
+    c_type = 'xlsx'
+    l_name = None
 
     f_write_data_to_file(l_df, c_name, c_path, c_type, l_name)
     """ 
@@ -91,7 +92,7 @@ def f_write_data_to_file(
 
     # Create l_name if not provided.
     if l_name is None:
-        l_name = ['data' + str(i+1) for _,i in enumerate(l_df)]
+        l_name = ['data' + str(i+1) for i,_ in enumerate(l_df)]
 
 
 #----------------------------------------------------------------------------------------------------------------------
