@@ -1,6 +1,7 @@
 # Import module.
 import pandas as pd
 
+
 # Define function.
 def f_info(
 

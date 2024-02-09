@@ -1,4 +1,6 @@
 # Import module.
+import pandas as pd
+
 from .f_var_name import f_var_name
 
 
@@ -27,9 +29,7 @@ def f_check_na_in_df(
 
     Testing
     -------
-    df_input          = df_htri_w_source
-    l_exclude_columns = ['product']
-    l_include_columns = []
+
     """
 
             

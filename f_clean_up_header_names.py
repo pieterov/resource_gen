@@ -1,7 +1,8 @@
 # Import module.
 import re
 
-from .f_is_numerical import f_is_numerical
+from pandas.api.types import is_numeric_dtype
+
 
 # Define function.
 def f_clean_up_header_names(l_input):
@@ -27,7 +28,7 @@ def f_clean_up_header_names(l_input):
         x3.lower() for x3 in [
 
         # Replace space by '_':
-        x2 if f_is_numerical(x2) else re.sub(" |\.", "_", x2) for x2 in [
+        x2 if is_numeric_dtype(x2) else re.sub(" |\.", "_", x2) for x2 in [
 
         str(x1) for x1 in l_input        
     ]]]

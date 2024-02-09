@@ -1,7 +1,8 @@
 # Import module.
 import re
 
-from datetime             import datetime
+from datetime import datetime
+
 
 # Define function.
 def f_now():

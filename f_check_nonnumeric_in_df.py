@@ -1,5 +1,8 @@
 # Import module.
+import numpy as np
+
 from .f_var_name import f_var_name
+
 
 # Define function.
 def f_check_nonnumeric_in_df(
