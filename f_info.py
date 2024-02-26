@@ -43,8 +43,8 @@ def f_info(
     x = df_ames['Lot Frontage']
     x = df_files_subset['file_name']
 
-    x = df_data.competentie
-    n_top   = 50
+    x = DF_GENERIEKE_TAAK.key_level_2
+    n_top = None
     n_width = 50
     """
 
@@ -57,13 +57,18 @@ def f_info(
         raise TypeError(f"You provided an invalid type for 'x'; it must be a pandas series or a list.")
 
     if not isinstance(n_top, int) and n_top is not None:
-        raise TypeError(f"You provided an invalid value for 'n_top' ('{n_top}'); it must be an integer.")
+        raise TypeError(f"You provided an invalid value for 'n_top' ('{n_top}'); it must be None or an integer.")
 
 
 #----------------------------------------------------------------------------------------------------------------------
 # INITIALIZATION
 #----------------------------------------------------------------------------------------------------------------------
 
+    # Convert to str if x is categorical.
+    if hasattr(x, 'cat'):
+        x = x.astype(str)
+
+    # Convert to series if x is a list.
     if isinstance(x, list) :
         l_input = pd.Series(x.copy())
     else:
@@ -232,12 +237,19 @@ def f_info(
 
     ) + " (type: '" + type(l_input.values[0]).__name__ + "')"
     
-    # Header frequency table.
-    
+    # Set number of rows.
+    pd.set_option('display.max_rows', n_top*2)
+    pd.set_option('display.min_rows', n_top)
+
+    # Header frequency table.    
     print("\n  " + " "*(n_width + n_char_count) + "n  perc")
     print(df_basic_info)
     print("\n  " + c_freq_table + " "*(n_width + n_char_count - len(c_freq_table)) + "n  perc")
     print(df_freq)
+
+    # Set number of rows to original.
+    pd.set_option('display.max_rows', 10)
+    pd.set_option('display.min_rows', 10)
 
 
     ###########################################################################
