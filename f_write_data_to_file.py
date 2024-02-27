@@ -8,7 +8,7 @@ from datetime             import datetime
 
 from .f_now               import f_now
 from .f_var_name          import f_var_name
-from .i_variables         import C_PATH_DATA, C_PATH_ROOT_PARTNER
+from .i_constants         import C_PATH_DATA, C_PATH_ROOT_PARTNER
 
 # Define function.
 def f_write_data_to_file(

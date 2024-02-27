@@ -6,7 +6,7 @@ import pandas as pd
 
 from datetime                 import datetime
 
-from .i_variables             import C_PATH_ROOT_PARTNER
+from .i_constants             import C_PATH_ROOT_PARTNER
 
 from .f_get_latest_file       import f_get_latest_file
 from .f_clean_up_header_names import f_clean_up_header_names

@@ -19,4 +19,3 @@ from .f_var_name                        import f_var_name
 from .f_write_data_to_file              import f_write_data_to_file
 
 from .i_constants                       import *
-from .i_variables                       import *
