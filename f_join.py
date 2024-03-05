@@ -60,9 +60,13 @@ def f_join(
     # Initialization.
     ###################################################################################################################
 
+    # Check whether l_input is None, if so, return "".
+    if l_input is None:
+        return ""
+
     # Check whether l_input is a list, if not make it a list.
     if isinstance(l_input, pd.Series):
-            l_input = list(l_input)
+        l_input = list(l_input)
 
     # Determine length of l_input.
     n_length = len(l_input)
