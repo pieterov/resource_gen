@@ -10,6 +10,7 @@ from .f_clean_up_header_names           import f_clean_up_header_names
 from .f_describe                        import f_describe
 from .f_get_account_name                import f_get_account_name
 from .f_get_filenames_in_folder         import f_get_filenames_in_folder
+from .f_get_git_branch                  import f_get_git_branch
 from .f_get_latest_file                 import f_get_latest_file
 from .f_info                            import f_info
 from .f_join                            import f_join
